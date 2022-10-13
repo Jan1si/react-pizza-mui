@@ -1,0 +1,54 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 50px !important;
+}
+
+.custom__btn {
+    display: flex;
+    align-items: center;
+    padding: 8px 20px !important;
+    border-radius: 30px !important;
+    background: #FE5F1E !important;
+    
+    > span {
+        color: red !important;
+    }
+
+    &:hover {
+        background: #FE5F1E !important;
+    }
+
+    .total__price {
+        color: white;
+        font-size: 16px;
+        font-family: "Proxima Nova-b";
+        font-weight: 700;
+        text-transform: lowercase;
+    }
+
+    .len__product {
+        display: flex;
+        align-items: center;
+        margin-left: 20px;
+        position: relative;
+        color: white;
+        font-size: 16px;
+        font-family: "Proxima Nova-b";
+        font-weight: 700;
+
+        &::before {
+            content: '';
+            position: absolute;
+            display: block;
+            width: 1px;
+            left: -10px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        >p {
+            margin-left: 8px;
+        }
+    }
+}

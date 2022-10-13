@@ -5,7 +5,13 @@
 }
 
 @font-face {
-  font-family: "Proxima Nova";
+  font-family: "Proxima Nova-eb";
+  src: url('./fonts/proximanova_extrabold.otf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Proxima Nova-b";
   src: url('./fonts/proximanova_bold.otf');
   font-weight: 700;
 }
@@ -17,6 +23,7 @@
 }
 
 body {
+  background: #FFDF8C;
   font-family: "Proxima Nova";
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
