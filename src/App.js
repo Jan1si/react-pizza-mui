@@ -1,8 +1,17 @@
-import { Box, Button, Menu, MenuItem, } from '@mui/material';
+import { Box, Button } from '@mui/material';
 import { Container } from '@mui/system';
 import { Header } from './components/Header';
+import { useState } from 'react';
 
 function App() {
+
+  const [openFilter, setOpenFilter] = useState(false);
+  const [selectFilter, setSelectFilter] = useState('популярности')
+
+  const changeSelect = (e) => {
+    setSelectFilter(e.target.textContent);
+    setOpenFilter(!openFilter);
+  }
 
   return (
     <div className="App">
@@ -21,6 +30,7 @@ function App() {
             <div className="buttons__group">
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -31,6 +41,7 @@ function App() {
 
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -41,6 +52,7 @@ function App() {
 
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -51,6 +63,7 @@ function App() {
 
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -61,6 +74,7 @@ function App() {
 
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -71,6 +85,7 @@ function App() {
 
               <Button className="filter_active" variant='contained' sx={{
                 color: '#2C2C2C',
+                height: '35px',
                 fontFamily: 'Proxima Nova-b',
                 textTransform: 'capitalize',
                 backgroundColor: '#F9F9F9',
@@ -81,24 +96,33 @@ function App() {
             </div>
 
             <div className="dropdown__btn">
-              <Button variant='text' sx={{
-                display: 'flex',
-                alignItems: 'center',
-              }}>
-                <img src="./img/arrow.svg" alt="Arrow" />
-                <p clasName="label__filter">Сортировка по:</p>
-                <p className="select__filter">популярности</p>
-              </Button>
-
-              <Menu>
-                <MenuItem>популярности</MenuItem>
-                <MenuItem>по цене</MenuItem>
-                <MenuItem>по алфавиту</MenuItem>
-              </Menu>
+              <img className={`dropdown__arrow ${openFilter ? "rotate__arrow" : null}`} src="./img/arrow.svg" alt="Arrow" />
+              <p className="label__filter">Сортировка по:</p>
+              <p onClick={() => setOpenFilter(!openFilter)} className="select__filter">
+                {selectFilter}
+              </p>
+              <ul className={`dropdown__menu ${openFilter ? "dropdown__menu_active" : null}`}>
+                <li
+                  onClick={(e) => changeSelect(e)}
+                  className={`${selectFilter === "популярности" ? "current__select" : null}`}>
+                  популярности
+                </li>
+                <li
+                  onClick={(e) => changeSelect(e)}
+                  className={`${selectFilter === "по цене" ? "current__select" : null}`}
+                >по цене</li>
+                <li
+                  onClick={(e) => changeSelect(e)}
+                  className={`${selectFilter === "по алфавиту" ? "current__select" : null}`}
+                >по алфавиту
+                </li>
+              </ul>
             </div>
 
           </div>
-          <div className="goods__list"></div>
+          <div className="goods__list">
+            <br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+          </div>
         </Box>
       </Container>
 
