@@ -33,3 +33,23 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.filter__list{
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons__group{
+  display: flex;
+  grid-gap: 10px;
+}
+
+.filter_active:hover {
+  background: #282828 !important;
+  color: white !important;
+} 
+
+.label__filter {
+  margin-left: 50px;
+  text-transform: capitalize !important;
+}

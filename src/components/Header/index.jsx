@@ -46,7 +46,7 @@ export const Header = () => {
           </Box>
          <Button variante="contained" className={styles.custom__btn}>
               <div className={styles.total__price}>
-                <p>520 .р</p>
+                <p>520 р.</p>
               </div>
               <div className={styles.len__product}>
                 <img src="./img/cart.svg" alt="" />
