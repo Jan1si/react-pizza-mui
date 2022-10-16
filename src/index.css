@@ -44,7 +44,7 @@ code {
   grid-gap: 10px;
 }
 
-.filter_active:hover {
+.filter_active {
   background: #282828 !important;
   color: white !important;
 } 

@@ -1,16 +1,48 @@
-import { Box, Button } from '@mui/material';
+import { Box, Button, createTheme, styled, ThemeProvider } from '@mui/material';
 import { Container } from '@mui/system';
 import { Header } from './components/Header';
 import { useState } from 'react';
 
 function App() {
 
+  const CustomButton = styled(Button)(({ theme }) => ({
+    color: theme.root.color,
+    height: theme.root.height,
+    fontFamily: theme.root.fontFamily,
+    textTransform: theme.root.textTransform,
+    backgroundColor: theme.root.backgroundColor,
+    borderRadius: theme.root.borderRadius,
+    '&:hover': {
+      color: theme.hover.color,
+      backgroundColor: theme.hover.backgroundColor,
+    }
+  }));
+  const theme = createTheme({
+    root: {
+      color: '#2C2C2C',
+      height: '35px',
+      fontFamily: 'Proxima Nova-b',
+      textTransform: 'capitalize',
+      backgroundColor: '#F9F9F9',
+      borderRadius: '30px',
+    },
+    hover: {
+      backgroundColor: '#282828',
+      color: 'white',
+    }
+  });
+
   const [openFilter, setOpenFilter] = useState(false);
-  const [selectFilter, setSelectFilter] = useState('популярности')
+  const [selectFilter, setSelectFilter] = useState('популярности');
+  const [selectButton, setSelectButton] = useState('Всё');
 
   const changeSelect = (e) => {
     setSelectFilter(e.target.textContent);
     setOpenFilter(!openFilter);
+  }
+
+  const changeSelectButton = (e) => {
+    setSelectButton(e.target.textContent)
   }
 
   return (
@@ -28,71 +60,49 @@ function App() {
           <div className="filter__list">
 
             <div className="buttons__group">
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Всё
-              </Button>
+              <ThemeProvider theme={theme}>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Всё' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Всё
+                </CustomButton>
 
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Мясные
-              </Button>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Мясные' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Мясные
+                </CustomButton>
 
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Вегетарианская
-              </Button>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Вегатарианская' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Вегатарианская
+                </CustomButton>
 
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Гриль
-              </Button>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Гриль' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Гриль
+                </CustomButton>
 
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Острые
-              </Button>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Острые' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Острые
+                </CustomButton>
 
-              <Button className="filter_active" variant='contained' sx={{
-                color: '#2C2C2C',
-                height: '35px',
-                fontFamily: 'Proxima Nova-b',
-                textTransform: 'capitalize',
-                backgroundColor: '#F9F9F9',
-                borderRadius: '30px',
-              }}>
-                Закрытые
-              </Button>
+                <CustomButton
+                  onClick={(e) => changeSelectButton(e)}
+                  className={`${selectButton === 'Закрытые' ? "filter_active" : null}`}
+                  variant='contained' >
+                  Закрытые
+                </CustomButton>
+              </ThemeProvider>
             </div>
 
             <div className="dropdown__btn">
