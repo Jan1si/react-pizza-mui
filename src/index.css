@@ -39,7 +39,7 @@ code {
   justify-content: space-between;
 }
 
-.buttons__group{
+.filter__buttons_group{
   display: flex;
   grid-gap: 10px;
 }
@@ -115,3 +115,49 @@ code {
   cursor: unset !important;
 }
 
+.content{
+  margin-top: 30px;
+  padding-bottom: 90px;
+}
+
+.goods__list{
+   display: flex;
+   flex-wrap: wrap;
+   grid-gap: 100px;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width:280px;
+  margin-top: 35px;
+}
+
+.card__button_group{
+  background: #F3F3F3;
+  padding: 7px;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.buttons__row{
+  display: flex;
+  grid-gap: 5px;
+}
+
+.buttons__size{
+  margin-top: 5px;
+}
+
+.card__button_buy{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.plus__icon{
+  fill: #ffffff;
+  margin-right: 7px;
+}
