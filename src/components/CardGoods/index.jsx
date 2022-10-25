@@ -1,44 +1,50 @@
 import React from "react";
 import { Card, CardMedia, ThemeProvider, Typography } from "@mui/material";
+import {
+  CardBtnSize,
+  themeCardBtnSize,
+  CardBtnBuy,
+  themeCardBtnBuy,
+} from "../../themes/CardBtns";
+import styles from './CardGoods.module.scss';
 
-import { CardBtnSize, themeCardBtnSize, CardBtnBuy, themeCardBtnBuy } from "../../themes/CardBtns";
-
-
-export const CardGoods = () => {
-
+export const CardGoods = ({title, imgUrl, price}) => {
   return (
-    <Card className="card" sx={{ boxShadow: "unset" }}>
-      <CardMedia component="img" height="260px" width="260px"
-        image="https://cdn.dodostatic.net/static/Img/Products/9a468e7d8f5149d89464b4e174599b65_292x292.png"
-        sx={{ objectFit: "contain",}}
+    <Card className={styles.card} sx={{ boxShadow: "unset" }}>
+      <CardMedia
+        component="img"
+        height="260px"
+        width="260px"
+        image={imgUrl}
+        sx={{ objectFit: "contain" }}
       />
-      <Typography variant="h5" component="p"
+      <Typography
+        variant="h5"
+        component="p"
         sx={{
           mt: "5px",
           fontFamily: "Proxima Nova-eb",
           textAlign: "center",
         }}
       >
-        Чизбургер-пицца
+        {title}
       </Typography>
 
-      <div className="card__button_group">
-        <div className="buttons__row">
+      <div className={styles.card__button_group}>
+        <div className={styles.buttons__row}>
           <ThemeProvider theme={themeCardBtnSize}>
-
-            <CardBtnSize variant="contained" sx={{ width: "130px" }}>
+            <CardBtnSize className={styles._active} variant="contained" sx={{ width: "130px" }}>
               тонкое
             </CardBtnSize>
 
             <CardBtnSize variant="contained" sx={{ width: "130px" }}>
               традиционное
             </CardBtnSize>
-
           </ThemeProvider>
         </div>
-        <div className="buttons__row buttons__size">
+        <div className={`${styles.buttons__row} ${styles.buttons__size}`}>
           <ThemeProvider theme={themeCardBtnSize}>
-            <CardBtnSize variant="contained" sx={{ width: "86px" }}>
+            <CardBtnSize className={styles._active} variant="contained" sx={{ width: "86px" }}>
               26 см
             </CardBtnSize>
 
@@ -46,23 +52,25 @@ export const CardGoods = () => {
               30 см.
             </CardBtnSize>
 
-            <CardBtnSize variant="contained" sx={{ width: "86px" }}>
+            <CardBtnSize className={styles._disable} variant="contained" sx={{ width: "86px" }}>
               40 см.
             </CardBtnSize>
           </ThemeProvider>
         </div>
       </div>
 
-      <div className="card__button_buy">
-
-        <Typography component="p"sx={{fontFamily: "Proxima Nova-b",fontSize: "22px", }}>
-          от 395 р.
+      <div className={styles.card__button_buy}>
+        <Typography
+          component="p"
+          sx={{ fontFamily: "Proxima Nova-b", fontSize: "22px" }}
+        >
+          от {price} р.
         </Typography>
 
         <ThemeProvider theme={themeCardBtnBuy}>
           <CardBtnBuy>
             <svg
-              className="plus__icon"
+              className={styles.plus__icon}
               width="12"
               height="12"
               viewBox="0 0 12 12"

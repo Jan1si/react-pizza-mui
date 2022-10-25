@@ -7,6 +7,7 @@ export const CategoryBtn = styled(Button)(({ theme }) => ({
     textTransform: theme.root.textTransform,
     backgroundColor: theme.root.backgroundColor,
     borderRadius: theme.root.borderRadius,
+    boxShadow:theme.root.boxShadow,
     '&:hover': {
       color: theme.hover.color,
       backgroundColor: theme.hover.backgroundColor,
@@ -21,6 +22,7 @@ export const CategoryBtn = styled(Button)(({ theme }) => ({
       textTransform: 'capitalize',
       backgroundColor: '#F9F9F9',
       borderRadius: '30px',
+      boxShadow: "unset",
     },
     hover: {
       backgroundColor: '#282828',

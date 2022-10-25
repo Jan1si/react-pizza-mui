@@ -1,0 +1,52 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Proxima Nova-eb";
+  src: url('./fonts/proximanova_extrabold.otf');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: "Proxima Nova-b";
+  src: url('./fonts/proximanova_bold.otf');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: "Proxima Nova";
+  src: url('./fonts/proximanova_regular.ttf');
+  font-weight: 400;
+}
+
+body {
+  background: #FFDF8C;
+  font-family: "Proxima Nova";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.filter__list{
+  display: flex;
+  justify-content: space-between;
+}
+
+.content{
+  margin-top: 30px;
+  padding-bottom: 90px;
+}
+
+.goods__list{
+   display: flex;
+   flex-wrap: wrap;
+   grid-gap: 100px;
+}
+

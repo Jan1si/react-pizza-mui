@@ -59,7 +59,21 @@ function App() {
               Все пиццы
             </Typography>
             <div className="goods__list">
-              <CardGoods />
+              <CardGoods 
+              title={"Пицца из половинок"}
+              imgUrl={"https://cdn.dodostatic.net/static/Img/Products/9a468e7d8f5149d89464b4e174599b65_292x292.png"}
+              price={645}
+               />
+               <CardGoods 
+              title={"Ветчина и сыр"}
+              imgUrl={"https://cdn.dodostatic.net/static/Img/Products/06c75b36952747a694a169662cb3267b_292x292.png"}
+              price={309}
+               />
+               <CardGoods 
+              title={"Пепперони фреш"}
+              imgUrl={"https://cdn.dodostatic.net/static/Img/Products/a55f23f650344e1bb5bd43c7fc6e82fc_292x292.png"}
+              price={289}
+               />
             </div>
           </div>
         </Box>

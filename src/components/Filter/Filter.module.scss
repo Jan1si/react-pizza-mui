@@ -1,0 +1,66 @@
+.dropdown__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.label__filter {
+    margin-left: 5px;
+    font-family: "Proxima Nova-b";
+    font-size: 16px;
+}
+
+.select__filter {
+    font-family: "Proxima Nova";
+    color: #FE5F1E;
+    font-size: 16px;
+    border-bottom: 1px dashed #FE5F1E;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.dropdown__menu {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    border-radius: 10px;
+    padding: 15px 0px 20px 0px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.dropdown__menu_active {
+    top: 35px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.dropdown__arrow {
+    transition: all .2s ease-in-out;
+}
+
+.rotate__arrow {
+    transform: rotate(-180deg);
+}
+
+.dropdown__menu>li {
+    font-family: "Proxima Nova";
+    font-size: 16px;
+    list-style: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.dropdown__menu>li:hover {
+    color: #FE5F1E;
+    background: rgba(254, 95, 30, 0.05);
+}
+
+.current__select {
+    color: #FE5F1E;
+    background: rgba(254, 95, 30, 0.05);
+    cursor: unset !important;
+}

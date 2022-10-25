@@ -1,0 +1,9 @@
+.category__buttons_group {
+    display: flex;
+    grid-gap: 10px;
+}
+
+.category_active {
+    background: #282828 !important;
+    color: white !important;
+}
