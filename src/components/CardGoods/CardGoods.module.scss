@@ -23,12 +23,12 @@
   }
 
   ._active{
-    background: white;
-    cursor: auto;
+    background: white !important;
+    cursor: auto !important;
   }
   ._disable{
     opacity: .2;
-    cursor: auto;
+    cursor: auto !important;
   }
   
   .card__button_buy{

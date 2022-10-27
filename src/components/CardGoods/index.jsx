@@ -1,5 +1,6 @@
 import React from "react";
 import { Card, CardMedia, ThemeProvider, Typography } from "@mui/material";
+import { useState } from "react";
 import {
   CardBtnSize,
   themeCardBtnSize,
@@ -8,20 +9,25 @@ import {
 } from "../../themes/CardBtns";
 import styles from './CardGoods.module.scss';
 
-export const CardGoods = ({title, imgUrl, price}) => {
+export const CardGoods = ({title, imageUrl, price, types, sizes}) => {
+  const [selectWidth, setSelectWidth] = useState(0);
+  const [selectSize, setSelectSize] = useState(0);
+  const widthPizza = ["тонкое", "традиционное"]; 
+
   return (
     <Card className={styles.card} sx={{ boxShadow: "unset" }}>
       <CardMedia
         component="img"
         height="260px"
         width="260px"
-        image={imgUrl}
+        image={imageUrl}
         sx={{ objectFit: "contain" }}
       />
       <Typography
         variant="h5"
         component="p"
         sx={{
+          fontSize: "20px",
           mt: "5px",
           fontFamily: "Proxima Nova-eb",
           textAlign: "center",
@@ -33,28 +39,20 @@ export const CardGoods = ({title, imgUrl, price}) => {
       <div className={styles.card__button_group}>
         <div className={styles.buttons__row}>
           <ThemeProvider theme={themeCardBtnSize}>
-            <CardBtnSize className={styles._active} variant="contained" sx={{ width: "130px" }}>
-              тонкое
-            </CardBtnSize>
-
-            <CardBtnSize variant="contained" sx={{ width: "130px" }}>
-              традиционное
-            </CardBtnSize>
+            {types.map((item, idx) => (
+              <CardBtnSize onClick={() => setSelectWidth(item)} key={idx} className={`${selectWidth === item ? styles._active : null}`} variant="contained" sx={{ width: "100%" }}>
+                {widthPizza[item]}
+              </CardBtnSize>
+            ))}
           </ThemeProvider>
         </div>
         <div className={`${styles.buttons__row} ${styles.buttons__size}`}>
           <ThemeProvider theme={themeCardBtnSize}>
-            <CardBtnSize className={styles._active} variant="contained" sx={{ width: "86px" }}>
-              26 см
-            </CardBtnSize>
-
-            <CardBtnSize variant="contained" sx={{ width: "86px" }}>
-              30 см.
-            </CardBtnSize>
-
-            <CardBtnSize className={styles._disable} variant="contained" sx={{ width: "86px" }}>
-              40 см.
-            </CardBtnSize>
+            {sizes.map((item, idx) => (
+              <CardBtnSize onClick={() => setSelectSize(idx)} key={idx} className={`${selectSize === idx ?  styles._active : null}`} variant="contained" sx={{ width: "100%" }}>
+                {item} см
+              </CardBtnSize>
+            ))}
           </ThemeProvider>
         </div>
       </div>
