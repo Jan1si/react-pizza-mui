@@ -31,6 +31,7 @@ export const themeCardBtnSize = createTheme({
 export const CardBtnBuy = styled(Button)(({ theme }) => ({
     backgroundColor: theme.root.backgroundColor,
     boxShadow: theme.root.boxShadow,
+    border: theme.root.border,
     borderRadius: theme.root.borderRadius,
     fontFamily: theme.root.fontFamily,
     textTransform: theme.root.textTransform,
@@ -38,6 +39,7 @@ export const CardBtnBuy = styled(Button)(({ theme }) => ({
     padding: theme.root.padding,
     "&:hover": {
       boxShadow: theme.hover.boxShadow,
+      color: theme.hover.color,
       backgroundColor: theme.hover.backgroundColor,
     },
   }));
@@ -54,6 +56,24 @@ export const CardBtnBuy = styled(Button)(({ theme }) => ({
     },
     hover: {
       boxShadow: "unset",
+      backgroundColor: "#FE5F1E",
+    },
+  });
+
+  export const themeCardBtnBuyToCount = createTheme({
+    root: {
+      backgroundColor: "#FFFFFF",
+      boxShadow: "unset",
+      border: "1px solid #FE5F1E",
+      borderRadius: "30px",
+      fontFamily: "Proxima Nova-b",
+      textTransform: "capitalize",
+      color: "#FE5F1E",
+      padding: "10px 18px",
+    },
+    hover: {
+      boxShadow: "unset",
+      color: "#FFFFFF",
       backgroundColor: "#FE5F1E",
     },
   });

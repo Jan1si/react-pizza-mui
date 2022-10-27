@@ -38,7 +38,42 @@
     margin-top: 20px;
   }
   
+.buttonBuy{
   .plus__icon{
     fill: #ffffff;
     margin-right: 7px;
   }
+
+  .plus__icon_count{
+    fill: #FE5F1E;
+    margin-right: 7px;
+  }
+
+  .count{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    border: 1px solid #FE5F1E;
+    border-radius: 50%;
+    margin-left: 10px;
+    > p {
+      margin-right: 3px;
+      margin-top: .5px;
+    }
+  }
+  &:hover{
+    .plus__icon_count{
+      fill: white !important;
+    }
+    .count {
+      border: 1px solid #ffffff;
+    }
+  }
+}
+
+  
+
+
+  
