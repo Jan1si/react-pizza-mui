@@ -1,14 +1,35 @@
-import {Box, Typography} from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { Header } from './components/Header';
 import { Category } from './components/Category';
 import { Filter } from './components/Filter';
 import { CardGoods } from './components/CardGoods';
 
-import items from './db.json'; 
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+
 
 function App() {
 
+  const [goodsItems, setGoodsItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setLoading((prev) => !prev);
+        const { data } = await axios.get("https://635c38b9f0bc26795bfb9b6e.mockapi.io/items");
+        setGoodsItems(data);
+        setLoading((prev) => !prev);
+      } catch (error) {
+        alert("Неудалось получить данные!");
+        console.log(error);
+      }
+    }
+    fetchData();
+  }, [])
+
+  console.log(loading);
 
   return (
     <div className="App">
@@ -36,10 +57,8 @@ function App() {
               Все пиццы
             </Typography>
             <div className="goods__list">
-              {items.map((item, idx) => (
-                  <CardGoods 
-                  {...item}
-                   />
+              {goodsItems.map((item, idx) => (
+                 <CardGoods loading={loading} {...item} />
               ))}
             </div>
           </div>
