@@ -16,6 +16,7 @@ import {
 import styles from "./CardGoods.module.scss";
 
 export const CardGoods = ({
+  idx,
   title,
   imageUrl,
   price,
@@ -29,7 +30,7 @@ export const CardGoods = ({
 
   const widthPizza = ["тонкое", "традиционное"];
   return (
-    <Card key={title} className={styles.card} sx={{ boxShadow: "unset" }}>
+    <Card key={idx} className={styles.card} sx={{ boxShadow: "unset" }}>
       <CardMedia
         component="img"
         height="260px"

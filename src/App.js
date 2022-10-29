@@ -1,4 +1,4 @@
-import { Box, Typography } from '@mui/material';
+import { Box, Skeleton, Stack, Typography } from '@mui/material';
 import { Container } from '@mui/system';
 import { Header } from './components/Header';
 import { Category } from './components/Category';
@@ -12,15 +12,14 @@ import axios from 'axios';
 function App() {
 
   const [goodsItems, setGoodsItems] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading((prev) => !prev);
         const { data } = await axios.get("https://635c38b9f0bc26795bfb9b6e.mockapi.io/items");
         setGoodsItems(data);
-        setLoading((prev) => !prev);
+        setLoading(false);
       } catch (error) {
         alert("Неудалось получить данные!");
         console.log(error);
@@ -28,8 +27,6 @@ function App() {
     }
     fetchData();
   }, [])
-
-  console.log(loading);
 
   return (
     <div className="App">
@@ -57,9 +54,24 @@ function App() {
               Все пиццы
             </Typography>
             <div className="goods__list">
-              {goodsItems.map((item, idx) => (
-                 <CardGoods loading={loading} {...item} />
-              ))}
+              {loading ? (
+                [...Array(10)].map((item, idx) => (
+                  <Stack spacing={1} sx={{ mt: "35px" }}>
+                    <Skeleton animation={"wave"} variant='circular' width={"260px"} height={"260px"} />
+                    <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"25px"} />
+                    <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"100px"} />
+                    <Box width={"100%"} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <Skeleton animation={"wave"} variant='rounded' width={"70px"} height={"20px"} />
+                      <Skeleton animation={"wave"} variant='rounded' width={"100px"} height={"30px"} />
+                    </Box>
+                  </Stack>
+                ))
+              ) : (
+                goodsItems.map((item, idx) => (
+                  <CardGoods idx={idx} loading={loading} {...item} />
+                ))
+              )}
+
             </div>
           </div>
         </Box>
