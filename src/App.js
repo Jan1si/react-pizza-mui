@@ -13,6 +13,8 @@ function App() {
 
   const [goodsItems, setGoodsItems] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectCategory, setSelectCategory] = useState(0);
+  const [selectFilter, setSelectFilter] = useState("title");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +30,16 @@ function App() {
     fetchData();
   }, [])
 
+  const onSelectCategory = (category) => {
+    setSelectCategory(category);
+  }
+
+  const onSelectFilter = (filter) => {
+    setSelectFilter(filter);
+  }
+
+  console.log(goodsItems);
+
   return (
     <div className="App">
       <Container maxWidth="lg" sx={{
@@ -41,8 +53,8 @@ function App() {
           marginTop: '40px',
         }}>
           <div className="filter__list">
-            <Category />
-            <Filter />
+            <Category currentCategory={selectCategory} getCategory={(category) => onSelectCategory(category)} />
+            <Filter getFilter={(filter) => onSelectFilter(filter)} />
           </div>
 
           <div className="content">
@@ -55,8 +67,8 @@ function App() {
             </Typography>
             <div className="goods__list">
               {loading ? (
-                [...Array(10)].map((item, idx) => (
-                  <Stack spacing={1} sx={{ mt: "35px" }}>
+                [...Array(10)].map((__, idx) => (
+                  <Stack key={idx} spacing={1} sx={{ mt: "35px" }}>
                     <Skeleton animation={"wave"} variant='circular' width={"260px"} height={"260px"} />
                     <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"25px"} />
                     <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"100px"} />
@@ -67,9 +79,13 @@ function App() {
                   </Stack>
                 ))
               ) : (
-                goodsItems.map((item, idx) => (
-                  <CardGoods idx={idx} loading={loading} {...item} />
-                ))
+                (selectCategory === 0 ? goodsItems
+                  .sort((a, b) => selectFilter === "title" ? a[selectFilter].localeCompare(b[selectFilter]) :
+                     b[selectFilter] - a[selectFilter])
+                      : goodsItems.filter((item) => item.category === selectCategory))
+                      .map((item, idx) => (
+                        <CardGoods idx={idx} loading={loading} {...item} />
+                      ))
               )}
 
             </div>

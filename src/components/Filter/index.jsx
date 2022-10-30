@@ -2,16 +2,32 @@ import React from "react";
 import styles from "./Filter.module.scss";
 import { useState } from "react";
 
-export const Filter = () => {
+export const Filter = ({getFilter}) => {
   const [openFilter, setOpenFilter] = useState(false);
-  const [selectedFilter, setSelectedFilter] = useState(0);
+  const [selectedFilter, setSelectedFilter] = useState("популярности");
 
-  const filters = ["популярности", "по цене", " по алфавиту"];
+  const filters = [
+    {
+      value: "популярности",
+      filter: "rating",
+    },
+    {
+      value: "по цене",
+      filter: "price",
+    },
+    {
+      value: "по алфавиту",
+      filter: "title",
+    }
+  ];
 
-  const onClickSelect = (idx) => {
-    setSelectedFilter(idx);
+  const onClickSelect = (value, filter) => {
+    getFilter(filter);
+    setSelectedFilter(value);
     setOpenFilter((prev) => !prev);
   };
+
+  console.log(filters);
 
   return (
     <div className={styles.dropdown__btn}>
@@ -27,7 +43,7 @@ export const Filter = () => {
         onClick={() => setOpenFilter((prev) => !prev)}
         className={styles.select__filter}
       >
-        {filters[selectedFilter]}
+        {selectedFilter}
       </p>
       <ul
         className={`${styles.dropdown__menu} ${
@@ -37,12 +53,13 @@ export const Filter = () => {
         {filters.map((item, idx) => (
           <li
             key={idx}
-            onClick={() => onClickSelect(idx)}
+            onClick={() => onClickSelect(item.value, item.filter)}
             className={`${
               selectedFilter === idx ? styles.current__select : null
             }`}
           >
-            {item}
+            {item.value}
+            
           </li>
         ))}
       </ul>

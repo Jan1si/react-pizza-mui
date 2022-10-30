@@ -1,14 +1,11 @@
 import React from 'react'
 import { ThemeProvider } from '@mui/material';
 import { CategoryBtn, themeCategoryBtn } from '../../themes/CategotyBtn';
-import { useState, createContext } from 'react';
 import styles from './Category.module.scss';
 
-// const CategoryContext
 
-export const Category = () => {
+export const Category = ({currentCategory, getCategory}) => {
 
-    const [selectButton, setSelectButton] = useState(0);
     const categories = ["Все", "Мясные", "Вегатарианская", "Гриль", "Острые", "Закрытые"];
 
     return (
@@ -17,8 +14,8 @@ export const Category = () => {
                 {categories.map((item, idx) => (
                     <CategoryBtn
                         key={idx}
-                        onClick={() => setSelectButton(idx)}
-                        className={`${selectButton === idx ? styles.category_active : null}`}
+                        onClick={() => {getCategory(idx)}}
+                        className={`${currentCategory=== idx ? styles.category_active : null}`}
                         variant='contained' >
                         {item}
                     </CategoryBtn>
