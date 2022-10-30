@@ -1,8 +1,10 @@
 import React from 'react'
 import { ThemeProvider } from '@mui/material';
 import { CategoryBtn, themeCategoryBtn } from '../../themes/CategotyBtn';
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import styles from './Category.module.scss';
+
+// const CategoryContext
 
 export const Category = () => {
 

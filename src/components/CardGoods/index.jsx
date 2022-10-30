@@ -100,9 +100,8 @@ export const CardGoods = ({
             className={styles.buttonBuy}
           >
             <svg
-              className={`${
-                count > 0 ? styles.plus__icon_count : styles.plus__icon
-              }`}
+              className={`${count > 0 ? styles.plus__icon_count : styles.plus__icon
+                }`}
               width="12"
               height="12"
               viewBox="0 0 12 12"
