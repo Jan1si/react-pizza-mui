@@ -7,7 +7,7 @@ import { Category } from '../components/Category';
 import { Filter } from '../components/Filter';
 import { CardGoods } from '../components/CardGoods';
 
-export const GoodsList = () => {
+export const Main = () => {
 
   const {goodsItems, loading, selectCategory, selectFilter, onSelectCategory, onSelectFilter} = useContext(AppContext);
 

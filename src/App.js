@@ -6,7 +6,7 @@ import { useEffect, useState, createContext } from 'react';
 import axios from 'axios';
 import { Route, Routes } from 'react-router-dom';
 import { Cart } from './pages/Cart';
-import { GoodsList } from './pages/GoodsList';
+import { Main } from './pages/Main';
 
 export const AppContext = createContext({});
 
@@ -62,7 +62,7 @@ function App() {
             }
           }>
           <Routes> 
-            <Route exact path='/' element={<GoodsList />}/>
+            <Route exact path='/' element={<Main />}/>
             <Route exact path='/cart' element={<Cart />}/>
           </Routes>
         </AppContext.Provider>

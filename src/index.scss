@@ -50,3 +50,23 @@ code {
    grid-gap: 100px;
 }
 
+.header__cart{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart__item {
+  border-top:  1px solid #F4F4F4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 30px;
+  margin-top: 30px;
+}
+
+.count__block{
+  display: flex;
+  align-items: center;
+  margin-left: 150px;
+}
