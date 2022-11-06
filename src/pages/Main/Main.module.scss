@@ -1,0 +1,16 @@
+.filter__list{
+  display: flex;
+  justify-content: space-between;
+}
+
+.goods__list{
+  display: flex;
+  flex-wrap: wrap;
+  grid-gap: 100px;
+}
+
+@media(max-width: 1200px) {
+  .filter__list {
+    flex-direction: column;
+  }
+}

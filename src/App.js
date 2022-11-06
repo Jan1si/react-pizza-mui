@@ -41,13 +41,13 @@ function App() {
 
   return (
     <div className="App">
-      <Container maxWidth="lg" sx={{
+      <Container className="container" maxWidth="lg" sx={{
         backgroundColor: 'white',
         margin: '50px auto',
         borderRadius: '10px',
       }}>
         <Header />
-        <Box sx={{
+        <Box className="wrapp__content" sx={{
         padding: '0px 50px',
         marginTop: '40px',
       }}>

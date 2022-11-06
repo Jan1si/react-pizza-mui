@@ -64,3 +64,9 @@
     background: rgba(254, 95, 30, 0.05);
     cursor: unset !important;
 }
+
+@media(max-width: 1200px) {
+    .dropdown__btn {
+      margin-top: 30px;
+    }
+  }

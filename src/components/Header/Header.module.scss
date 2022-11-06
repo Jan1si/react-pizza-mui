@@ -55,3 +55,38 @@
         }
     }
 }
+
+@media(max-width: 650px) {
+    .sub__title {
+        display: none;
+    }
+}
+
+@media(max-width: 490px) {
+    .custom__btn{
+        min-width: auto !important;
+        padding: 12px 10px !important;
+        border-radius: 50% !important; 
+    }
+    .total__price {
+        display: none ;
+    }
+    .len__product {
+        margin: 0 !important;
+        &::before {
+            display: none !important;
+        }
+    }
+}
+
+@media(max-width: 420px) {
+    .logo{
+        display: none;
+    }
+    .logo__text {
+        margin: 0;
+    }
+    .navbar {
+        padding: 30px 10px !important;
+    }
+}

@@ -1,11 +1,13 @@
 import React from 'react';
 import {  Box, Typography } from '@mui/material';
-import { ItemCart } from '../components/ItemCart';
+import { ItemCart } from '../../components/ItemCart';
+import styles from './Cart.module.scss';
+
 export const Cart = () => {
   return (
     <>
       <div className="content">
-       <div className="header__cart">
+       <div className={styles.header__cart}>
           <Box sx={{display: "flex", alignItems: "center"}}>
             <img src="./img/cart__icon_black.svg" alt="Cart" />
             <Typography component="h2"
@@ -30,7 +32,7 @@ export const Cart = () => {
             </Typography>
           </Box>
         </div>
-        <div className="cart__list">
+        <div className={styles.cart__list}>
           <ItemCart />
         </div>
       </div>

@@ -5,11 +5,7 @@ import styles from "./Header.module.scss";
 
 export const Header = () => {
   return (
-    <Box
-      sx={{
-        padding: "0px 10px",
-      }}
-    >
+    <Box>
       <AppBar
         position={"static"}
         sx={{
@@ -26,8 +22,9 @@ export const Header = () => {
                 alignItems: "center",
               }}
             >
-              <img src="./img/logo-pizza.svg" alt="" />
+              <img className={styles.logo} src="./img/logo-pizza.svg" alt="" />
               <Box
+                className={styles.logo__text}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -37,6 +34,7 @@ export const Header = () => {
                 <Typography
                   variant={"h5"}
                   component={"h1"}
+                  className={styles.title}
                   sx={{
                     color: "black",
                     fontFamily: "Proxima Nova-eb",
@@ -48,6 +46,7 @@ export const Header = () => {
                   React Pizza
                 </Typography>
                 <Typography
+                  className={styles.sub__title}
                   sx={{
                     color: "#7B7B7B",
                     fontSize: "16px",
@@ -62,7 +61,7 @@ export const Header = () => {
             </Box>
           </Link>
           <Link to="/cart">
-            <Button variante="contained" className={styles.custom__btn}>
+            <Button variante="contained" className={styles.custom__btn}> 
               <div className={styles.total__price}>
                 <p>520 р.</p>
               </div>

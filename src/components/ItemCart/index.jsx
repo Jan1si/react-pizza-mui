@@ -2,10 +2,11 @@ import React from 'react'
 import {  Box, ThemeProvider, Typography } from '@mui/material';
 import { CountBtn, themeCountBtn } from '../../themes/CountBtn';
 import { DeleteBtn, themeDeleteBtn } from '../../themes/DeleteBtn';
+import styles from './ItemCart.moduel.scss';
 
 export const ItemCart = () => {
   return (
-    <div className="cart__item">
+    <div className={styles.cart__item}>
     <Box sx={{display: "flex", alignItems: "center"}}>
       <img width={80} height={80} src="https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/30367198-f3bd-44ed-9314-6f717960da07.jpg" alt="Pizza" />
       <Box sx={{ml: "15px"}}>

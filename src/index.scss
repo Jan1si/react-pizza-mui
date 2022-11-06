@@ -34,39 +34,28 @@ code {
     monospace;
 }
 
-.filter__list{
-  display: flex;
-  justify-content: space-between;
-}
-
 .content{
   margin-top: 30px;
   padding-bottom: 90px;
 }
 
-.goods__list{
-   display: flex;
-   flex-wrap: wrap;
-   grid-gap: 100px;
+@media(max-width: 1200px) {
+  .container {
+    max-width: 1000px;
+  }
 }
 
-.header__cart{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media(max-width: 1000px) {
+  .container {
+    max-width: 800px;
+  }
 }
 
-.cart__item {
-  border-top:  1px solid #F4F4F4;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 30px;
-  margin-top: 30px;
-}
-
-.count__block{
-  display: flex;
-  align-items: center;
-  margin-left: 150px;
+@media(max-width: 800px) {
+  .container {
+    margin: 0 !important;
+  }
+  .wrapp__content {
+    padding: 0 20px !important;
+  }
 }

@@ -1,11 +1,14 @@
 import React from 'react';
-import { Box, Skeleton, Stack, Typography } from '@mui/material';
-import { AppContext } from '../App';
+import { Typography } from '@mui/material';
+import { AppContext } from '../../App';
 import { useContext } from 'react';
 
-import { Category } from '../components/Category';
-import { Filter } from '../components/Filter';
-import { CardGoods } from '../components/CardGoods';
+import { Category } from '../../components/Category';
+import { Filter } from '../../components/Filter';
+import { CardGoods } from '../../components/CardGoods';
+import { SkeletonCard } from '../../components/CardGoods/SkeletonCard';
+
+import styles from './Main.module.scss';
 
 export const Main = () => {
 
@@ -13,7 +16,7 @@ export const Main = () => {
 
   return (
     <>
-      <div className="filter__list">
+      <div className={styles.filter__list}>
         <Category currentCategory={selectCategory} getCategory={(category) => onSelectCategory(category)} />
         <Filter getFilter={(filter) => onSelectFilter(filter)} />
       </div>
@@ -26,18 +29,10 @@ export const Main = () => {
           }}>
           Все пиццы
         </Typography>
-        <div className="goods__list">
+        <div className={styles.goods__list}>
           {loading ? (
             [...Array(10)].map((__, idx) => (
-              <Stack key={idx} spacing={1} sx={{ mt: "35px" }}>
-                <Skeleton animation={"wave"} variant='circular' width={"260px"} height={"260px"} />
-                <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"25px"} />
-                <Skeleton animation={"wave"} variant='rounded' width={"260px"} height={"100px"} />
-                <Box width={"100%"} sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <Skeleton animation={"wave"} variant='rounded' width={"70px"} height={"20px"} />
-                  <Skeleton animation={"wave"} variant='rounded' width={"100px"} height={"30px"} />
-                </Box>
-              </Stack>
+              <SkeletonCard  idx={idx} />
             ))
           ) : (
             (selectCategory === 0 ? goodsItems
